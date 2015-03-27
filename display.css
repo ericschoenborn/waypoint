@@ -1,0 +1,166 @@
+body{
+	background:black;
+	text-align:center;
+	display:-webkit-box;
+	-webkit-box-orient: horizontal;
+	padding:0px;
+	background-attachment: fixed;
+}
+
+
+.bgStuff:hover{background-color:red;}
+
+header, footer, aside, nav, article, hgroup{
+	display:block;
+}
+a{text-decoration:none;}
+#stage{
+	height:800px;
+	width:1300px;
+	border: 4px solid red;
+	color:red;
+	padding:30px;
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	background:black;
+	-webkit-box-align:center;
+}
+
+#control{
+	width:200px;
+	height:800px;
+	color: red;
+	border: 4px solid gray;
+	background:black;
+	padding:30px;
+	-webkit-box-flex:0;
+	display:-webkit-box;
+	-webkit-box-align:center;
+	-webkit-box-orient:vertical;
+
+}
+#text{
+	font: bold 20px Tahoma;
+	padding:20px;
+	-webkit-box-flex:0;
+
+}
+button{
+	border: 4px solid gray;
+	font: bold 30px Tahoma;
+	margin:10px;
+	padding:0px;
+	width:110px;
+	-webkit-box-flex:0;
+	background:black;
+	color:gray;
+}
+
+.skillSelect{
+	border: 4px solid gray;
+	font: bold 30px Tahoma;
+	margin:10px;
+	padding:0px;
+	-webkit-box-flex:0;
+	background:black;
+	color:gray;
+}
+#shopLable{
+	font: 30px Tahoma; 
+	color: red;
+	border: 3px solid gray;
+}
+#buttonSinker{
+	position: absolute;
+}
+th{font:bold 15px Tahoma;}
+td:nth-child(n+1){font:bold 15px Tahoma; text-align:center;}
+td:not(.bgStuff){font: 15px Tahoma; text-align:left;}
+td[id^="level"]{font:bold 15px Tahoma; text-align:center;}
+td[id^="pnts"]{font:bold 15px Tahoma; text-align:center;}
+.shop,.shopArrow{font:bold 30px Tahoma; text-align:center; border: 3px solid gray;}
+.redOver{font:bold 30px Tahoma; text-align:center; border: 3px solid gray;}
+#ajust{
+	background: black;
+	-webkit-box-flex:0;
+	display:-webkit-box;
+	-webkit-box-align:center;
+	-webkit-box-orient:horizontal;
+
+}
+#arrow{
+	border: 4px solid gray;
+	font: bold 50px Tahoma;
+	color:gray;
+	padding:0px;
+	width:50px;
+	-webkit-box-flex:1;
+}
+#Ap{color:blue;}
+#Ss{color:green;}
+#LP{color:red;}
+div[id^="block"]{
+	border: 4px solid gray;
+	font: bold 50px Tahoma;
+	padding:0px;
+	width:65px;
+	-webkit-box-flex:0;
+}
+div[id^="step"]{
+ color: none;
+}
+#green{color:green; padding-left: 0px;}
+#floater{
+	position: fixed;
+	left: 100px;
+	font: bold 50px Tahoma;
+	color:gray;
+	background-color:black;	
+}
+#helper{
+	height:800px;
+	width:1300px;
+	padding:30px;
+	position: absolute;
+	border: 4px solid gray;
+	left: 0px;
+	top: 0px;
+	font: bold 50px Tahoma;	
+}
+
+#block7{	
+	border: 4px solid gray;
+	font: bold 50px Tahoma;
+	color:green;
+	width:65px;
+	-webkit-box-flex:0;
+}
+#skillSelect{
+	border: 4px solid gray;
+
+	font: bold 50px Tahoma;
+	color:gray;
+	background-color:black;	
+}
+#shopTable{
+border: 3px solid gray;
+}	
+div[id^="fix"]{
+	display:-webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-align:center;
+}
+
+button:hover{color:red;}
+.skillSelect:hover{color:red;}
+.shopArrow:hover{color:red;}
+.redOver:hover{color:red;}
+.border {border: 4px solid gray; padding: 10px;}
+
+.banner {
+background-image: url(wood.jpg);
+background-repeat: no-repeat;
+background-position: center center;
+background-attachment: fixed;
+
+}
