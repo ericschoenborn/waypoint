@@ -1,3 +1,5 @@
+alert();
+//Starts when html body loads
 function HouseKeeping(){
 	Shop();
 	var thing=document.getElementById("stage");
@@ -143,7 +145,7 @@ function forward(x,y,z){
 					document.getElementById("block1").style.borderColor="gray";
 					document.getElementById("block2").style.borderColor="gray";
 					document.getElementById("block3").style.borderColor="gray";
-				if(selected[0][VImproved[1]]!="Improved1" && VImproved[0]!=""){alert('hi');document.getElementById(VImproved[0]).innerHTML=parseInt(document.getElementById(VImproved[0]).innerHTML)-1;VImproved[0]="";}
+				if(selected[0][VImproved[1]]!="Improved1" && VImproved[0]!=""){document.getElementById(VImproved[0]).innerHTML=parseInt(document.getElementById(VImproved[0]).innerHTML)-1;VImproved[0]="";}
 				if(VImproved[0]!=""){document.getElementById(VImproved[0]).style.borderColor="green";}
 				document.getElementById("step1").hidden=true;
 				document.getElementById("step2").hidden=false;
@@ -652,7 +654,6 @@ function MessageHandeler(name){
 	if(doubleCheck=="s"){
 		document.getElementById(SkillMastery[skillNum]+0).style.color="black";
 		SkillMastery[skillNum]="";
-		alert(SkillMastery[0]+" - "+SkillMastery[1]+" - "+SkillMastery[2]+" - "+SkillMastery[3]);
 		if(document.getElementById("color").checked==true){
 			backgroundColor(1);
 		}
