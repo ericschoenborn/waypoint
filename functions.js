@@ -1,7 +1,6 @@
 //Starts when html body loads
 function HouseKeeping(){
 	Shop();
-	//element.offsetLeft - element.scrollLeft + element.clientLeft
 	var thing=document.getElementById("stage");
 	var left=thing.offsetLeft-thing.scrollLeft+thing.clientLeft-4;
 	var top=thing.offsetTop-thing.scrollTop+thing.clientTop-4;
@@ -14,7 +13,6 @@ function HouseKeeping(){
 	document.getElementById("helper").style.backgroundImage="url('help0.png')";
 }
 function TotorialImage(e){
-	//document.getElementById("helper").hidden=false;
 	document.getElementById("helper").hidden=true
 	if(totorial==false){		
 		document.getElementById("stage").style.backgroundImage =null;
@@ -35,7 +33,6 @@ function TotorialImage(e){
 
 		}
 	}
-	//document.getElementById("continue").onclick=function(){document.getElementById("helper").hidden=true}
 }
 var VImproved=["",0];
 var placement=0;
@@ -142,22 +139,19 @@ function forward(x,y,z){
 			if(document.getElementById("step1").hidden!=true){
 				placer=2;
 				if(totorial==true){TotorialImage(2);}	
-					document.getElementById("block1").style.borderColor="gray";
-<<<<<<< HEAD
-					document.getElementById("block2").style.borderColor="gray";
-					document.getElementById("block3").style.borderColor="gray";
+				document.getElementById("block1").style.borderColor="gray";
+				document.getElementById("block2").style.borderColor="gray";
+				document.getElementById("block3").style.borderColor="gray";
 				if(selected[0][VImproved[1]]!="Improved1" && VImproved[0]!=""){document.getElementById(VImproved[0]).innerHTML=parseInt(document.getElementById(VImproved[0]).innerHTML)-1;VImproved[0]="";}
-=======
-						document.getElementById("block2").style.borderColor="gray";
-							document.getElementById("block3").style.borderColor="gray";
-				if(selected[0][VImproved[1]]!="Improved1" && VImproved[0]!=""){alert('hi');document.getElementById(VImproved[0]).innerHTML=parseInt(document.getElementById(VImproved[0]).innerHTML)-1;VImproved[0]="";}
->>>>>>> parent of 2360f5c... Comments in JS and change of names
+				document.getElementById("block2").style.borderColor="gray";
+				document.getElementById("block3").style.borderColor="gray";
+				if(selected[0][VImproved[1]]!="Improved1" && VImproved[0]!=""){document.getElementById(VImproved[0]).innerHTML=parseInt(document.getElementById(VImproved[0]).innerHTML)-1;VImproved[0]="";}
 				if(VImproved[0]!=""){document.getElementById(VImproved[0]).style.borderColor="green";}
 				document.getElementById("step1").hidden=true;
 				document.getElementById("step2").hidden=false;
 				document.getElementById("step3").hidden=true;
 				document.getElementById("step4").hidden=true;
-					document.getElementById("step3Points").hidden=true;
+				document.getElementById("step3Points").hidden=true;
 				levelTracker(document.getElementById("block5").innerHTML);	
 			}
 			else if(document.getElementById("step2").hidden!=true){
@@ -167,7 +161,7 @@ function forward(x,y,z){
 				document.getElementById("step2").hidden=true;
 				document.getElementById("step3").hidden=false;
 				document.getElementById("step4").hidden=true;
-					document.getElementById("step3Points").hidden=true;
+				document.getElementById("step3Points").hidden=true;
 				document.getElementById("block6").innerHTML=totalPoints;
 				Recount('phys',1);Recount('ess',3);Recount('cunn',2);
 			}
@@ -178,7 +172,7 @@ function forward(x,y,z){
 				document.getElementById("step2").hidden=true;
 				document.getElementById("step3").hidden=true;
 				document.getElementById("step4").hidden=false;
-					document.getElementById("step3Points").hidden=false;
+				document.getElementById("step3Points").hidden=false;
 			}
 		}
 	}
@@ -191,7 +185,7 @@ function forward(x,y,z){
 			document.getElementById("step2").hidden=true;
 			document.getElementById("step3").hidden=false;
 			document.getElementById("step4").hidden=true;
-				document.getElementById("step3Points").hidden=true;
+			document.getElementById("step3Points").hidden=true;
 		}
 		else if(document.getElementById("step3").hidden!=true){
 			placer=2;
@@ -200,7 +194,7 @@ function forward(x,y,z){
 			document.getElementById("step2").hidden=false;
 			document.getElementById("step3").hidden=true;
 			document.getElementById("step4").hidden=true;
-				document.getElementById("step3Points").hidden=true;
+			document.getElementById("step3Points").hidden=true;
 		}
 		else if(document.getElementById("step2").hidden!=true){
 			placer=1;
@@ -209,15 +203,15 @@ function forward(x,y,z){
 			document.getElementById("step2").hidden=true;
 			document.getElementById("step3").hidden=true;
 			document.getElementById("step4").hidden=true;
-				document.getElementById("step3Points").hidden=true;
+			document.getElementById("step3Points").hidden=true;
 		}
 		else if(document.getElementById("step1").hidden!=true){	
-				totorial=false
-				TotorialImage();
-				document.getElementById("controlVisable").hidden=true;
-				document.getElementById("skillSelect").hidden=false;
-				document.getElementById("leaving").hidden=false;
-				document.getElementById("step1").hidden=true;
+			totorial=false
+			TotorialImage();
+			document.getElementById("controlVisable").hidden=true;
+			document.getElementById("skillSelect").hidden=false;
+			document.getElementById("leaving").hidden=false;
+			document.getElementById("step1").hidden=true;
 		}
 	}
 }
@@ -264,15 +258,13 @@ function skillSelect(e,ArrN,ArrN2){
 			selected[ArrN][ArrN2]="-none-";
 		}
 		document.getElementById(e+"Placer"+ArrN2).innerHTML=selected[ArrN][ArrN2];
-
 	}
 }
 function buttonManage(set,id,name,step){
 	step=placement;
 	document.getElementById(name+"OK").hidden=false;
 	borderVisable("border",name);	
-	document.getElementById(id).style.borderColor="red";
-	
+	document.getElementById(id).style.borderColor="red";	
 	if(set==0 ||name=="VeteranImproved"){
 		step=parseInt(document.getElementById("total").innerHTML)-1;
 		if(name=="VeteranImproved"){
@@ -281,7 +273,6 @@ function buttonManage(set,id,name,step){
 			VImproved[1]=step;
 		}
 	}
-
 	selected[set][step]=id;
 	if(name=="fightingStyle" || name=="weaponFo"){
 		document.getElementById(name+"Placer"+step).innerHTML=id.substr(2,id.length-2);
@@ -296,7 +287,6 @@ function buttonManage(set,id,name,step){
 		document.getElementById("veteran").hidden=true;
 		document.getElementById("VeteranImproved").hidden=false;
 	}
-
 }
 function borderVisable(set,skill,ArrN){
 	var Button=document.getElementsByName(skill);
@@ -311,8 +301,7 @@ function borderVisable(set,skill,ArrN){
 					count=count+1;
 				}
 				i=i+1;
-			}
-			
+			}			
 			if(count==limit && count!=0){
 				document.getElementById(Button[n].id).hidden=true;
 			}
@@ -340,9 +329,7 @@ function decitionHelp(e){
 		borderVisable("hidden","veteran",0);
 		borderVisable("border","veteran");
 	}
-
 	else{
-
 		document.getElementById(e).hidden=true;
 		document.getElementById(e+"OK").hidden=true;
 		if(e=="VeteranImproved"){
@@ -360,30 +347,25 @@ function decitionHelp(e){
 		}
 	}
 }
-function Shop(){
-	
+function Shop(){	
 	var list = document.getElementsByName("shop");
 	var n=0;
 	while(n<list.length){
-		document.getElementById(list[n].id).onclick=function(){
-															
-															var title=this.id.substr(0,this.id.length-1);
-															
-															var value=parseInt(document.getElementById(title+"V").innerHTML);
-															var coin=parseInt(document.getElementById("shopPoints").innerHTML);
-															if(this.id.substr(this.id.length-1)=="M" && document.getElementById(title).innerHTML!=0){
-																document.getElementById(title).innerHTML=document.getElementById(title).innerHTML-1;
-																document.getElementById("shopPoints").innerHTML=parseInt(document.getElementById("shopPoints").innerHTML)+value;
-															}
-															if(this.id.substr(this.id.length-1)=="P"){
-																if(coin-value>-1){
-																	document.getElementById(title).innerHTML=parseInt(document.getElementById(title).innerHTML)+1;
-																	document.getElementById("shopPoints").innerHTML=parseInt(document.getElementById("shopPoints").innerHTML)-value;	
+		document.getElementById(list[n].id).onclick=function(){															
+																var title=this.id.substr(0,this.id.length-1);															
+																var value=parseInt(document.getElementById(title+"V").innerHTML);
+																var coin=parseInt(document.getElementById("shopPoints").innerHTML);
+																if(this.id.substr(this.id.length-1)=="M" && document.getElementById(title).innerHTML!=0){
+																	document.getElementById(title).innerHTML=document.getElementById(title).innerHTML-1;
+																	document.getElementById("shopPoints").innerHTML=parseInt(document.getElementById("shopPoints").innerHTML)+value;
 																}
-															}
-															
-															shopPlacement(title);
-			
+																if(this.id.substr(this.id.length-1)=="P"){
+																	if(coin-value>-1){
+																		document.getElementById(title).innerHTML=parseInt(document.getElementById(title).innerHTML)+1;
+																		document.getElementById("shopPoints").innerHTML=parseInt(document.getElementById("shopPoints").innerHTML)-value;	
+																	}
+																}															
+																shopPlacement(title);			
 															}
 			n=n+1												
 	}
@@ -468,8 +450,7 @@ var check=true;
 	}
 	if(event.button==2){
 		doubleCheck="";
-		if(document.getElementById(e+f).innerHTML == "" || document.getElementById(e+f).innerHTML == "x"){
-			
+		if(document.getElementById(e+f).innerHTML == "" || document.getElementById(e+f).innerHTML == "x"){			
 			if(f==1 || document.getElementById(e+(f-1)).innerHTML == "x"|| document.getElementById(e+(f-1)).innerHTML == "s"){
 				if(extra!=undefined){check=PrerequCheck(extra);}
 					if(check==true){
@@ -489,9 +470,6 @@ var check=true;
 						}
 				}
 			}
-		else{doubleCheck="";}
-		
-		}
 		else if(f==5 ||document.getElementById(e+(f+1)).innerHTML == ""){
 			if(document.getElementById(e+f).innerHTML != "x"){
 				if(extra!=undefined){check=PrerequCheck(extra);}
@@ -631,9 +609,6 @@ function MessageHandeler(name){
 																		}
 			n=n+1;
 			}
-
-
-
 		if(doubleCheck=="x"){
 			n=0;
 			while(n<SkillMastery.length){
@@ -660,7 +635,6 @@ function ArrayHandler(){
 	document.getElementById("block6").innerHTML=totalPoints;
 	Recount('phys',1);Recount('ess',3);Recount('cunn',2);
 	document.getElementById("floater").hidden=true;
-	//alert(SkillMastery[0]+" - "+SkillMastery[1]+" - "+SkillMastery[2]+" - "+SkillMastery[3]);
 	if(document.getElementById("color").checked==true){
 		backgroundColor(1);
 	}
@@ -689,16 +663,14 @@ function Helper(e){
 		document.getElementById("step"+placer).hidden=false;
 		document.getElementById("controlVisable").hidden=false;
 	}
-	if(e=="t"){totorial=true;TotorialImage(placer)}
-	
+	if(e=="t"){totorial=true;TotorialImage(placer)}	
 }
 function Recount(e,f){
 	var list=document.getElementsByName(e);
 	var i=0;
 	while( i<list.length){
 		var g=list[i].id.substr(0,list[i].id.length-1);
-		if(document.getElementById(list[i].id).innerHTML=="x"){
-					
+		if(document.getElementById(list[i].id).innerHTML=="x"){					
 			var s1 = parseInt(document.getElementById("block"+f).innerHTML);
 			var s2= parseInt(list[i].id.substr(list[i].id.length-1))-s1;
 			if(s2<0){s2=0;}
