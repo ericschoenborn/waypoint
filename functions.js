@@ -1,10 +1,8 @@
 function HouseKeeping(){
 	Shop();
-	//element.offsetLeft - element.scrollLeft + element.clientLeft
 	var thing=document.getElementById("stage");
 	var left=thing.offsetLeft-thing.scrollLeft+thing.clientLeft-4;
-	var top=thing.offsetTop-thing.scrollTop+thing.clientTop-4;
-	
+	var top=thing.offsetTop-thing.scrollTop+thing.clientTop-4;	
 	document.getElementById("helper").style.left=left;
 	document.getElementById("helper").style.top=top;
 	document.getElementById("buttonSinker").style.bottom=0;
@@ -12,10 +10,10 @@ function HouseKeeping(){
 	document.getElementById("skip").style.marginRight=475;
 	document.getElementById("helper").style.backgroundImage="url('help0.png')";
 }
+//Turns on and off the tutorial, and changes what step its on
 function TotorialImage(e){
-	//document.getElementById("helper").hidden=false;
 	document.getElementById("helper").hidden=true
-	if(totorial==false){		
+	if(tutorial==false){		
 		document.getElementById("stage").style.backgroundImage =null;
 		document.getElementById("topRight").hidden =true;
 		document.getElementById("bottomRight").hidden=true;
@@ -34,11 +32,10 @@ function TotorialImage(e){
 
 		}
 	}
-	//document.getElementById("continue").onclick=function(){document.getElementById("helper").hidden=true}
 }
 var VImproved=["",0];
 var placement=0;
-var totorial=true;
+var tutorial=true;
 var placer=1;
 var totalPoints=0;
 var doubleCheck="";
@@ -46,7 +43,7 @@ var skillNum=undefined;
 var SkillMastery=["","","",""];
 var selected=[["","","",""],["1","2","3","4","5"],["","","","",""],["","","","",""],["","","","",""],["","","","",""],["","","","",""],["","","","",""],["","","","",""],["","","","",""]]
 var choices=[];
-
+//Sets the back ground color of the levels
 function test(e,f,g){
 	var com ="";
 	var nxt ="";
@@ -79,6 +76,7 @@ function test(e,f,g){
 	}
 	i=0;
 }
+//If you choose a skill with 'skill mastery' this sets the background to all green
 function backgroundColor(e)
 {
 	if(e==1){
@@ -101,6 +99,7 @@ function backgroundColor(e)
 		test('phys','1',1); test('cunn','1',1); test('ess','1',1);
 	}
 }
+//When you continue or click back this function changes what is visible
 function forward(x,y,z){
 	var skip=false;
 	if(x==0){
@@ -140,38 +139,38 @@ function forward(x,y,z){
 		if(skip==false){
 			if(document.getElementById("step1").hidden!=true){
 				placer=2;
-				if(totorial==true){TotorialImage(2);}	
+				if(tutorial==true){TutorialImage(2);}	
 					document.getElementById("block1").style.borderColor="gray";
-						document.getElementById("block2").style.borderColor="gray";
-							document.getElementById("block3").style.borderColor="gray";
+					document.getElementById("block2").style.borderColor="gray";
+					document.getElementById("block3").style.borderColor="gray";
 				if(selected[0][VImproved[1]]!="Improved1" && VImproved[0]!=""){alert('hi');document.getElementById(VImproved[0]).innerHTML=parseInt(document.getElementById(VImproved[0]).innerHTML)-1;VImproved[0]="";}
 				if(VImproved[0]!=""){document.getElementById(VImproved[0]).style.borderColor="green";}
 				document.getElementById("step1").hidden=true;
 				document.getElementById("step2").hidden=false;
 				document.getElementById("step3").hidden=true;
 				document.getElementById("step4").hidden=true;
-					document.getElementById("step3Points").hidden=true;
+				document.getElementById("step3Points").hidden=true;
 				levelTracker(document.getElementById("block5").innerHTML);	
 			}
 			else if(document.getElementById("step2").hidden!=true){
 				placer=3;
-				if(totorial==true){TotorialImage(3);}	
+				if(tutorial==true){TutorialImage(3);}	
 				document.getElementById("step1").hidden=true;
 				document.getElementById("step2").hidden=true;
 				document.getElementById("step3").hidden=false;
 				document.getElementById("step4").hidden=true;
-					document.getElementById("step3Points").hidden=true;
+				document.getElementById("step3Points").hidden=true;
 				document.getElementById("block6").innerHTML=totalPoints;
 				Recount('phys',1);Recount('ess',3);Recount('cunn',2);
 			}
 			else if(document.getElementById("step3").hidden!=true){
 				placer=4;
-				if(totorial==true){TotorialImage(4);}
+				if(tutorial==true){TutorialImage(4);}
 				document.getElementById("step1").hidden=true;
 				document.getElementById("step2").hidden=true;
 				document.getElementById("step3").hidden=true;
 				document.getElementById("step4").hidden=false;
-					document.getElementById("step3Points").hidden=false;
+				document.getElementById("step3Points").hidden=false;
 			}
 		}
 	}
@@ -179,25 +178,25 @@ function forward(x,y,z){
 
 		if(document.getElementById("step4").hidden!=true){
 			placer=3;
-			if(totorial==true){TotorialImage(3);}
+			if(tutorial==true){TutorialImage(3);}
 			document.getElementById("step1").hidden=true;
 			document.getElementById("step2").hidden=true;
 			document.getElementById("step3").hidden=false;
 			document.getElementById("step4").hidden=true;
-				document.getElementById("step3Points").hidden=true;
+			document.getElementById("step3Points").hidden=true;
 		}
 		else if(document.getElementById("step3").hidden!=true){
 			placer=2;
-			if(totorial==true){TotorialImage(2);}	
+			if(tutorial==true){TutorialImage(2);}	
 			document.getElementById("step1").hidden=true;
 			document.getElementById("step2").hidden=false;
 			document.getElementById("step3").hidden=true;
 			document.getElementById("step4").hidden=true;
-				document.getElementById("step3Points").hidden=true;
+			document.getElementById("step3Points").hidden=true;
 		}
 		else if(document.getElementById("step2").hidden!=true){
 			placer=1;
-			if(totorial==true){TotorialImage(1);}	
+			if(tutorial==true){TutorialImage(1);}	
 			document.getElementById("step1").hidden=false;
 			document.getElementById("step2").hidden=true;
 			document.getElementById("step3").hidden=true;
@@ -205,8 +204,8 @@ function forward(x,y,z){
 				document.getElementById("step3Points").hidden=true;
 		}
 		else if(document.getElementById("step1").hidden!=true){	
-				totorial=false
-				TotorialImage();
+				tutorial=false
+				TutorialImage();
 				document.getElementById("controlVisable").hidden=true;
 				document.getElementById("skillSelect").hidden=false;
 				document.getElementById("leaving").hidden=false;
@@ -214,6 +213,7 @@ function forward(x,y,z){
 		}
 	}
 }
+//When ever you choose a skill that needs you to make additional choices
 function skillSelect(e,ArrN,ArrN2){
 	if(doubleCheck=="x" || ArrN==0){
 		placement=ArrN2;
@@ -260,6 +260,7 @@ function skillSelect(e,ArrN,ArrN2){
 
 	}
 }
+//Sets the users choices to an array and on the table
 function buttonManage(set,id,name,step){
 	step=placement;
 	document.getElementById(name+"OK").hidden=false;
@@ -291,6 +292,7 @@ function buttonManage(set,id,name,step){
 	}
 
 }
+// changes the border from red to gray and back, also turns items invisible if the user can not select it again 
 function borderVisable(set,skill,ArrN){
 	var Button=document.getElementsByName(skill);
 	var n=0;
@@ -319,6 +321,7 @@ function borderVisable(set,skill,ArrN){
 		n=n+1;
 	}
 }
+//This closes the menu
 function decitionHelp(e){
 	if(e==0){
 		var valueHolder=parseInt(document.getElementById("total").innerHTML)-1;
@@ -353,6 +356,7 @@ function decitionHelp(e){
 		}
 	}
 }
+//This is the buttons on the table in the third step
 function Shop(){
 	
 	var list = document.getElementsByName("shop");
@@ -381,6 +385,7 @@ function Shop(){
 			n=n+1												
 	}
 }
+//Places the shop items in the table
 function shopPlacement(e){
 	if(e=="skyPillar"){
 		document.getElementById(e+"Final").innerHTML=parseInt(document.getElementById(e).innerHTML)*3;
@@ -392,6 +397,7 @@ function shopPlacement(e){
 		document.getElementById(e+"Final").innerHTML=document.getElementById(e).innerHTML;
 	}
 }
+//Shows what level the user is on
 function levelTracker(x){
 	x=parseInt(x)-1;
 	
@@ -418,8 +424,9 @@ function levelTracker(x){
 		x=x-1;
 	}
 }
+//Any click on the main table is handled here
 function grid(e,f,g,event,extra){	
-var check=true;
+	var check=true;
 	if(event.button==0){
 		if(document.getElementById(e+f).innerHTML == "x"){doubleCheck=""}
 		if(document.getElementById(e+f).innerHTML == "" || document.getElementById(e+f).innerHTML == "s"){
@@ -498,6 +505,7 @@ var check=true;
 	}
 	DistributePoints();
 }
+//Originally named for Physical Cunning and Essence, this function make sure the user does not go into negative points
 function PCE(e,f){
 	var spot=document.getElementById("block"+e).innerHTML;
 	var pnt=document.getElementById("block"+"4").innerHTML;
@@ -526,8 +534,8 @@ function PCE(e,f){
 		return false;
 	}
 }
+//Checks to make sure the user has all needed prerequisites 
 function PrerequCheck(e){
-
 	if(e.substr(e.length-1)==0){
 		var i=1;
 		while(i<4){
@@ -544,6 +552,7 @@ function PrerequCheck(e){
 		else{return true}
 	}
 }
+//Re-sets points for stats manipulated by levels
 function DistributePoints(){
 	var HealthCounter =['Hlth1','Hlth2','Hlth3','Hlth4','Hlth5']
 	var APCounter=['CApt1','CApt2','CApt3','PhysApt1','PhysApt2','PhysApt3','EApt1','EApt2','EApt3']
@@ -595,6 +604,7 @@ function DistributePoints(){
 	document.getElementById("T").innerHTML = (parseInt(document.getElementById("TLP").innerHTML)+parseInt(document.getElementById("TAr").innerHTML)+parseInt(document.getElementById("TCR").innerHTML));
 	i=0;
 }
+//Menu for 'skill select'
 function MessageHandeler(name){
 	document.getElementById("selectEnter").hidden=true;
 	skillNum=parseInt(name.substr(name.length-1))-1;
@@ -650,42 +660,44 @@ function MessageHandeler(name){
 		Recount('phys',1);Recount('ess',3);Recount('cunn',2);
 	}
 }
+//Sets what the user selected in the 'skill mastery' to an array
 function ArrayHandler(){
 	document.getElementById("block6").innerHTML=totalPoints;
 	Recount('phys',1);Recount('ess',3);Recount('cunn',2);
 	document.getElementById("floater").hidden=true;
-	//alert(SkillMastery[0]+" - "+SkillMastery[1]+" - "+SkillMastery[2]+" - "+SkillMastery[3]);
 	if(document.getElementById("color").checked==true){
 		backgroundColor(1);
 	}
 }
+//Help menu
 function Helper(e){
 	if(e==0){
 		document.getElementById("skillSelect").hidden=true;
 		document.getElementById("leaving").hidden=true;
 		document.getElementById("step1").hidden=false;
 		document.getElementById("controlVisable").hidden=false;
-		totorial=true;
-		TotorialImage(placer);
+		tutorial=true;
+		TutorialImage(placer);
 	}
 	if(e==1){
-		totorial=false;
-		TotorialImage();		
+		tutorial=false;
+		TutorialImage();		
 		document.getElementById("skillSelect").hidden=false;
 		document.getElementById("Help").hidden=false;
 		document.getElementById("step"+placer).hidden=true;
 		document.getElementById("controlVisable").hidden=true;
 	}
 	if(e==2){
-		TotorialImage(placer);		
+		TutorialImage(placer);		
 		document.getElementById("skillSelect").hidden=true;
 		document.getElementById("Help").hidden=true;
 		document.getElementById("step"+placer).hidden=false;
 		document.getElementById("controlVisable").hidden=false;
 	}
-	if(e=="t"){totorial=true;TotorialImage(placer)}
+	if(e=="t"){tutorial=true;TotorialImage(placer)}
 	
 }
+//When ever user changes something that can mess with values this function is called to 'recount'
 function Recount(e,f){
 	var list=document.getElementsByName(e);
 	var i=0;
@@ -716,6 +728,9 @@ function Recount(e,f){
 		i=i+1;
 	}
 }
+//
+//// this next three functions I got off line and only know enough about them to make it save what I want and load what I want
+//
 function save(){
 	var textToWrite = document.getElementById("body").innerHTML;
 	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
