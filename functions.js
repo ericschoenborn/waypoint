@@ -12,6 +12,7 @@ function HouseKeeping(){
 	document.getElementById("skip").style.marginRight=475;
 	document.getElementById("helper").style.backgroundImage="url('help0.png')";
 }
+//changes what part of the tutorial is shown
 function TotorialImage(e){
 	document.getElementById("helper").hidden=true
 	if(totorial==false){		
@@ -44,7 +45,7 @@ var skillNum=undefined;
 var SkillMastery=["","","",""];
 var selected=[["","","",""],["1","2","3","4","5"],["","","","",""],["","","","",""],["","","","",""],["","","","",""],["","","","",""],["","","","",""],["","","","",""],["","","","",""]]
 var choices=[];
-
+//sets the main tables backgroud colors
 function test(e,f,g){
 	var com ="";
 	var nxt ="";
@@ -53,8 +54,7 @@ function test(e,f,g){
 	while( i<stuff.length){
 		nxt = stuff[i].id.substr(stuff[i].id.length - 1);
 		com = document.getElementById("block"+f).innerHTML;
-		if(parseInt(nxt)<=parseInt(com)&& g!=1) {
-			 
+		if(parseInt(nxt)<=parseInt(com)&& g!=1) {			 
 			document.getElementById(stuff[i].id).bgColor="PaleGreen";
 		}
 		if(parseInt(nxt)==parseInt(com)+1 && g!=1) {
@@ -77,12 +77,11 @@ function test(e,f,g){
 	}
 	i=0;
 }
-function backgroundColor(e)
-{
+//helps dictate the background color for the main table
+function backgroundColor(e){
 	if(e==1){
-		test('phys','1'); test('cunn','2'); test('ess','3');
-		
-			var i=0;
+	test('phys','1'); test('cunn','2'); test('ess','3');		
+	var i=0;
 	while(i<SkillMastery.length){
 		if(SkillMastery[i]!=""){
 			var e=1;
@@ -99,6 +98,7 @@ function backgroundColor(e)
 		test('phys','1',1); test('cunn','1',1); test('ess','1',1);
 	}
 }
+//moves what step the user is on
 function forward(x,y,z){
 	var skip=false;
 	if(x==0){
@@ -215,6 +215,7 @@ function forward(x,y,z){
 		}
 	}
 }
+//pop up menu for when choosing a skill that requires additional information
 function skillSelect(e,ArrN,ArrN2){
 	if(doubleCheck=="x" || ArrN==0){
 		placement=ArrN2;
@@ -260,6 +261,7 @@ function skillSelect(e,ArrN,ArrN2){
 		document.getElementById(e+"Placer"+ArrN2).innerHTML=selected[ArrN][ArrN2];
 	}
 }
+//sets what the user picks to an array and table
 function buttonManage(set,id,name,step){
 	step=placement;
 	document.getElementById(name+"OK").hidden=false;
@@ -288,6 +290,7 @@ function buttonManage(set,id,name,step){
 		document.getElementById("VeteranImproved").hidden=false;
 	}
 }
+//this is the code for the [Ok] button
 function borderVisable(set,skill,ArrN){
 	var Button=document.getElementsByName(skill);
 	var n=0;
@@ -315,6 +318,7 @@ function borderVisable(set,skill,ArrN){
 		n=n+1;
 	}
 }
+//for the veteran abilities
 function decitionHelp(e){
 	if(e==0){
 		var valueHolder=parseInt(document.getElementById("total").innerHTML)-1;
@@ -347,6 +351,7 @@ function decitionHelp(e){
 		}
 	}
 }
+//makes the table for the shop work
 function Shop(){	
 	var list = document.getElementsByName("shop");
 	var n=0;
@@ -370,6 +375,7 @@ function Shop(){
 			n=n+1												
 	}
 }
+//sets the choices from the shop step
 function shopPlacement(e){
 	if(e=="skyPillar"){
 		document.getElementById(e+"Final").innerHTML=parseInt(document.getElementById(e).innerHTML)*3;
@@ -381,6 +387,7 @@ function shopPlacement(e){
 		document.getElementById(e+"Final").innerHTML=document.getElementById(e).innerHTML;
 	}
 }
+//tells what your level is
 function levelTracker(x){
 	x=parseInt(x)-1;
 	
@@ -407,6 +414,7 @@ function levelTracker(x){
 		x=x-1;
 	}
 }
+//button clicks for the main table
 function grid(e,f,g,event,extra){	
 var check=true;
 	if(event.button==0){
@@ -483,6 +491,7 @@ var check=true;
 	}
 	DistributePoints();
 }
+//named for Physical Cunning and Essence, now controls any number box
 function PCE(e,f){
 	var spot=document.getElementById("block"+e).innerHTML;
 	var pnt=document.getElementById("block"+"4").innerHTML;
@@ -511,8 +520,8 @@ function PCE(e,f){
 		return false;
 	}
 }
+//makes sure the user can select the higher level skills
 function PrerequCheck(e){
-
 	if(e.substr(e.length-1)==0){
 		var i=1;
 		while(i<4){
@@ -529,6 +538,7 @@ function PrerequCheck(e){
 		else{return true}
 	}
 }
+//helps calculate important numbers like health and combat reflexes 
 function DistributePoints(){
 	var HealthCounter =['Hlth1','Hlth2','Hlth3','Hlth4','Hlth5']
 	var APCounter=['CApt1','CApt2','CApt3','PhysApt1','PhysApt2','PhysApt3','EApt1','EApt2','EApt3']
@@ -537,8 +547,7 @@ function DistributePoints(){
 	document.getElementById("LP").innerHTML=document.getElementById("block1").innerHTML;
 	document.getElementById("Ss").innerHTML = (parseInt(document.getElementById("block2").innerHTML)*2);
 	document.getElementById("AP").innerHTML=document.getElementById("block3").innerHTML;
-	document.getElementById("TCR").innerHTML=0;
-	
+	document.getElementById("TCR").innerHTML=0;	
 	while(i<HealthCounter.length){
 		if(document.getElementById(HealthCounter[i]).innerHTML=="x"){
 			if(i<3){document.getElementById("LP").innerHTML= parseInt(document.getElementById("LP").innerHTML)+1;}
@@ -580,6 +589,7 @@ function DistributePoints(){
 	document.getElementById("T").innerHTML = (parseInt(document.getElementById("TLP").innerHTML)+parseInt(document.getElementById("TAr").innerHTML)+parseInt(document.getElementById("TCR").innerHTML));
 	i=0;
 }
+//this is the skill Select message box
 function MessageHandeler(name){
 	document.getElementById("selectEnter").hidden=true;
 	skillNum=parseInt(name.substr(name.length-1))-1;
@@ -631,6 +641,7 @@ function MessageHandeler(name){
 		Recount('phys',1);Recount('ess',3);Recount('cunn',2);
 	}
 }
+// sets the skill select choice into an array
 function ArrayHandler(){
 	document.getElementById("block6").innerHTML=totalPoints;
 	Recount('phys',1);Recount('ess',3);Recount('cunn',2);
@@ -639,6 +650,7 @@ function ArrayHandler(){
 		backgroundColor(1);
 	}
 }
+//help menu
 function Helper(e){
 	if(e==0){
 		document.getElementById("skillSelect").hidden=true;
@@ -665,6 +677,7 @@ function Helper(e){
 	}
 	if(e=="t"){totorial=true;TotorialImage(placer)}	
 }
+//recounts users points
 function Recount(e,f){
 	var list=document.getElementsByName(e);
 	var i=0;
@@ -694,6 +707,7 @@ function Recount(e,f){
 		i=i+1;
 	}
 }
+// these next three functions I got from on line and just changed a few things to make it save and load what I wanted
 function save(){
 	var textToWrite = document.getElementById("body").innerHTML;
 	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
@@ -720,18 +734,15 @@ function save(){
 
 	downloadLink.click();
 }
-
 function destroyClickedElement(event)
 {
 	document.body.removeChild(event.target);
 }
-
 function load()
 {
 	document.getElementById("load").bgColor="green"
 	document.getElementById("fileToLoad").hidden=false;
 	var fileToLoad = document.getElementById("fileToLoad").files[0];
-
 	var fileReader = new FileReader();
 	fileReader.onload = function(fileLoadedEvent) 
 	{
